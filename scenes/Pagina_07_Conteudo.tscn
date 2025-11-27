@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=3 uid="uid://civlg23sb6tq0"]
+
+[ext_resource type="Script" uid="uid://cujbgm8uaxuho" path="res://scenes/pagina_07_conteudo.gd" id="1_qrkmp"]
+[ext_resource type="Texture2D" uid="uid://dhcex3d2c38qh" path="res://assets/imagens/7.png" id="2_qrkmp"]
+[ext_resource type="Texture2D" uid="uid://d2bt2wnsw2u40" path="res://assets/imagens/icone_som_ligado.png" id="3_6ixgt"]
+[ext_resource type="VideoStream" uid="uid://ddagovc21hba" path="res://assets/imagens/o-que-e-etica-clovis-de-barros.ogv" id="4_en5ma"]
+[ext_resource type="Texture2D" uid="uid://dqyvfr5cxypyh" path="res://assets/imagens/Play.png" id="5_en5ma"]
+
+[node name="Pagina07Conteudo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qrkmp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qrkmp")
+
+[node name="BotaoRetroceder" type="Button" parent="TextureRect"]
+light_mask = 0
+visibility_layer = 0
+layout_mode = 0
+offset_left = 18.0
+offset_top = 917.0
+offset_right = 72.0
+offset_bottom = 960.0
+text = "
+"
+
+[node name="BotaoAvancar" type="Button" parent="TextureRect"]
+light_mask = 0
+visibility_layer = 0
+layout_mode = 0
+offset_left = 693.0
+offset_top = 914.0
+offset_right = 745.0
+offset_bottom = 960.0
+
+[node name="BotaoSom" type="Button" parent="."]
+layout_mode = 0
+offset_left = 681.0
+offset_top = 20.0
+offset_right = 747.0
+offset_bottom = 81.0
+icon = ExtResource("3_6ixgt")
+flat = true
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.000004
+offset_top = 284.0
+offset_right = 314.14282
+offset_bottom = -41.42865
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+stream = ExtResource("4_en5ma")
+expand = true
+
+[node name="BotaoPlay" type="Button" parent="."]
+modulate = Color(0, 0, 0, 1)
+light_mask = 0
+layout_mode = 0
+offset_left = 326.0
+offset_top = 786.0
+offset_right = 488.0
+offset_bottom = 897.0
+scale = Vector2(0.9, 0.9)
+text = "PLAY
+"
+icon = ExtResource("5_en5ma")
+flat = true
+
+[node name="BotaoPause" type="Button" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 326.0
+offset_top = 786.00006
+offset_right = 500.0
+offset_bottom = 897.00006
+scale = Vector2(0.9, 0.9)
+text = "PAUSE"
+icon = ExtResource("5_en5ma")
+flat = true
+
+[connection signal="pressed" from="TextureRect/BotaoRetroceder" to="." method="_on_botao_retroceder_pressed"]
+[connection signal="pressed" from="TextureRect/BotaoAvancar" to="." method="_on_botao_avancar_pressed"]
+[connection signal="pressed" from="BotaoSom" to="." method="_on_botao_som_pressed"]
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="pressed" from="BotaoPlay" to="." method="_on_botao_play_pressed"]
+[connection signal="pressed" from="BotaoPause" to="." method="_on_botao_pause_pressed"]

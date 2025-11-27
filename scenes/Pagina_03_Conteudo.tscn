@@ -1,0 +1,135 @@
+[gd_scene load_steps=11 format=3 uid="uid://cxlhv8o8saa4m"]
+
+[ext_resource type="Script" uid="uid://et37rtbbjxc8" path="res://scenes/pagina_03_conteudo.gd" id="1_4mh8m"]
+[ext_resource type="Texture2D" uid="uid://b6m7q1tr0rmp3" path="res://assets/imagens/3.png" id="2_4mh8m"]
+[ext_resource type="Texture2D" uid="uid://d2bt2wnsw2u40" path="res://assets/imagens/icone_som_ligado.png" id="3_0gkrq"]
+[ext_resource type="Texture2D" uid="uid://fmna3wdpc67t" path="res://assets/imagens/3-1.png" id="4_0gkrq"]
+[ext_resource type="Texture2D" uid="uid://bk8ctiklovo4q" path="res://assets/imagens/3-2.png" id="5_5kjrl"]
+[ext_resource type="Script" uid="uid://du412t8qdrsn" path="res://scenes/zona_placa.gd" id="5_h4rlf"]
+[ext_resource type="Script" uid="uid://6ge7g0i4gm01" path="res://scenes/item_regra.gd" id="5_kjf87"]
+[ext_resource type="Texture2D" uid="uid://bgo2r2f3w5xw2" path="res://assets/imagens/3-3.png" id="6_kjf87"]
+[ext_resource type="FontFile" uid="uid://ch0j7p4suvkef" path="res://assets/ChauPhilomeneOne-Regular.ttf" id="9_o0bhh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0gkrq"]
+bg_color = Color(0.9865996, 0.9275848, 0.8224201, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Pagina03Conteudo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4mh8m")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4mh8m")
+
+[node name="BotaoRetroceder" type="Button" parent="TextureRect"]
+light_mask = 0
+visibility_layer = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.048
+anchor_top = 0.92
+anchor_right = 0.048
+anchor_bottom = 0.92
+offset_left = -23.863998
+offset_top = -24.080017
+offset_right = 26.136002
+offset_bottom = 25.919983
+theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+text = "
+"
+
+[node name="BotaoAvancar" type="Button" parent="TextureRect"]
+light_mask = 0
+visibility_layer = 0
+layout_mode = 0
+offset_left = 696.0
+offset_top = 915.0
+offset_right = 752.0
+offset_bottom = 966.0
+theme_override_colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+text = "
+"
+
+[node name="BotaoSom" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 682.0
+offset_top = 18.0
+offset_right = 750.0
+offset_bottom = 73.0
+icon = ExtResource("3_0gkrq")
+flat = true
+
+[node name="BotaoRegra1" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 259.0
+offset_right = 243.0
+offset_bottom = 419.0
+texture = ExtResource("6_kjf87")
+script = ExtResource("5_kjf87")
+
+[node name="BotaoRegra2" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 257.0
+offset_right = 461.0
+offset_bottom = 417.0
+texture = ExtResource("5_5kjrl")
+script = ExtResource("5_kjf87")
+id_regra = 2
+
+[node name="BotaoRegra3" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 256.0
+offset_right = 689.0
+offset_bottom = 416.0
+texture = ExtResource("4_0gkrq")
+script = ExtResource("5_kjf87")
+id_regra = 3
+
+[node name="AreaPlaca" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 331.0
+offset_top = 441.0
+offset_right = 741.0
+offset_bottom = 863.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0gkrq")
+script = ExtResource("5_h4rlf")
+
+[node name="LabelTexto" type="Label" parent="AreaPlaca"]
+modulate = Color(1, 1, 1, 0)
+z_index = 10
+layout_mode = 0
+offset_left = -6.0
+offset_top = 26.0
+offset_right = 410.0
+offset_bottom = 398.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_o0bhh")
+theme_override_font_sizes/font_size = 35
+text = "Ajude a coruja a preencher a placa da turma. Arraste um acordo para descobrir sua regra"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="TextureRect/BotaoRetroceder" to="." method="_on_botao_retroceder_pressed"]
+[connection signal="pressed" from="TextureRect/BotaoAvancar" to="." method="_on_botao_avancar_pressed"]
+[connection signal="pressed" from="TextureRect/BotaoSom" to="." method="_on_botao_som_pressed"]

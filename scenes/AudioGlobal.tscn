@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgfskr07igqgk"]
+
+[ext_resource type="AudioStream" uid="uid://tq5peu3i0m38" path="res://assets/narracao/narracao2.mp3" id="1_n44js"]
+
+[node name="NarrationPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_n44js")
+autoplay = true
